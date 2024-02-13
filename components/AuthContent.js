@@ -5,7 +5,7 @@ import ButtonWhite from './ButtonWhite';
 import { useNavigation } from '@react-navigation/native';
 
 
-export default function AuthContent({isLogin}) {
+export default function AuthContent({isLogin, onAuthenticate}) {
 
   const navigation = useNavigation()
 
@@ -41,7 +41,7 @@ function sumbitHandler (credentials){
     
     return;
   }
-
+  onAuthenticate({email, password})
 }
 
 
