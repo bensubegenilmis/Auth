@@ -1,18 +1,41 @@
 import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import AuthContent from '../components/AuthContent';
 import { createUser } from '../util/auth';
+import Loading from '../components/Loading';
 
 
 
- async function signUpHandler({email, password}){
-  await createUser(email,password);
 
- }
 
 export default function SignupScreen() {
+
+  const [isAuthanticating, setIsAuthanticating] = useState(false);
+
+
+  async function signUpHandler({ email, password }) {
+    setIsAuthanticating(true);
+    try {
+
+    } catch (error) {
+
+    }
+
+
+
+
+    await createUser(email, password);
+    setIsAuthanticating(false);
+
+  }
+
+  if (isAuthanticating) {
+    return <Loading message='Kullanıcı oluşturuluyor...' />;
+  }
+
+
   return (
-    <AuthContent onAuthenticate={signUpHandler}/>
+    <AuthContent onAuthenticate={signUpHandler} />
   );
 }
 
