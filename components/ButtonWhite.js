@@ -1,9 +1,11 @@
 import { StyleSheet, Text, View ,Pressable} from 'react-native';
 import React from 'react';
 
-export default function ButtonWhite({ children }) {
+export default function ButtonWhite({ children ,onPress}) {
   return (
-    <Pressable style={({ pressed }) => [styles.button, pressed && styles.pressed]}>
+    <Pressable style={({ pressed }) => [styles.button, pressed && styles.pressed]}
+    onPress={onPress}
+    >
       <View>
         <Text style={styles.text}>{children}</Text>
       </View>

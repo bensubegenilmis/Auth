@@ -7,6 +7,8 @@ export default function AuthForm({ isLogin }) {
 
     const [enteredEmail, setEnteredEmail] = useState('')
     const [enteredPassword, setEnteredPassword] = useState('')
+    const [enteredConfirmEmail, setEnteredConfirmEmail] = useState('')
+    const [enteredConfirmPassword, setEnteredConfirmPassword] = useState('')
 
     function updateInput(inputType, enteredValue) {
         switch (inputType) {
@@ -16,6 +18,15 @@ export default function AuthForm({ isLogin }) {
 
             case 'password':
                 setEnteredPassword(enteredValue);
+                break;
+
+            case 'confirmEmail':
+                setEnteredConfirmEmail(enteredValue);
+                break;
+
+            case 'confirmPassword':
+                setEnteredConfirmPassword(enteredValue);
+                break;
         }
     }
 
@@ -28,6 +39,16 @@ export default function AuthForm({ isLogin }) {
                 value={enteredEmail}
 
             />
+            {!isLogin && (
+                <Input
+                    label='Emaili Doğrula'
+                    keyboardType='email-address'
+                    onUpdateValue={updateInput.bind(this, 'confirmEmail')}
+                    value={enteredConfirmEmail}
+
+                />
+
+            )}
 
             <Input
                 label='Şifre'
@@ -36,6 +57,17 @@ export default function AuthForm({ isLogin }) {
                 value={enteredPassword}
 
             />
+            {!isLogin && (
+                <Input
+                    label='Şifreyi Doğrula'
+                    secure
+                    onUpdateValue={updateInput.bind(this, 'confirmPassword')}
+                    value={enteredConfirmPassword}
+
+                />
+
+            )}
+
 
             <View style={styles.buttons}>
                 <Button>
@@ -47,7 +79,7 @@ export default function AuthForm({ isLogin }) {
 }
 
 const styles = StyleSheet.create({
-    buttons:{
-        marginTop:10,
+    buttons: {
+        marginTop: 10,
     },
 });
