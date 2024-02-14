@@ -38,6 +38,7 @@ function NormalStack() {
 }
 
 function AfterAuthenticatedStack() {
+  const authContext = useContext(AuthContext);
   return (
     <Stack.Navigator
       screenOptions={{
@@ -54,7 +55,7 @@ function AfterAuthenticatedStack() {
         options={{
           headerTitle: 'Anasayfa',
           headerRight:()=>
-           <Pressable style = {} >
+           <Pressable style ={({pressed}) => pressed && styles.pressed } onPress={authContext.logout} >
             <Ionicons name="exit-outline" size={24} color="white" />
           </Pressable>,
 
@@ -67,7 +68,7 @@ function AfterAuthenticatedStack() {
 }
 
 function Navigation() {
-  const authContext = useContext(AuthContext)
+  const authContext = useContext(AuthContext);
   return (
     <NavigationContainer>
 
@@ -89,4 +90,8 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  pressed:{
+    opacity:0.5,
+  },
+});
