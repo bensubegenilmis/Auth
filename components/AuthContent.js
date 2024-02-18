@@ -14,7 +14,7 @@ export default function AuthContent({isLogin, onAuthenticate}) {
     email:false,
     password:false,
     confirmEmail:false,
-    confirmPassword:false,,
+    confirmPassword:false,
   });
 
 function sumbitHandler (credentials){
