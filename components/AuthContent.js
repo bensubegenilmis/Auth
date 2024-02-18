@@ -2,7 +2,8 @@ import { StyleSheet, Text, View, Alert } from 'react-native';
 import React, { useState } from 'react';
 import AuthForm from './AuthForm';
 import ButtonWhite from './ButtonWhite';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native'; 
+
 
 
 export default function AuthContent({isLogin, onAuthenticate}) {
@@ -13,7 +14,7 @@ export default function AuthContent({isLogin, onAuthenticate}) {
     email:false,
     password:false,
     confirmEmail:false,
-    confirmPassword:false,
+    confirmPassword:false,,
   });
 
 function sumbitHandler (credentials){
